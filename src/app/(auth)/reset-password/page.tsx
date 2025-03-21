@@ -4,11 +4,9 @@ import Loading from "@/components/layout/home/shared/loading";
 import PublicRoute from "@/components/layout/shared/PublicRouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  useHandleLoginMutation,
-  useHandleResetPasswordMutation,
-} from "@/redux/features/auth/authApi";
+import { useHandleResetPasswordMutation } from "@/redux/features/auth/authApi";
 import { Github } from "lucide-react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -145,4 +143,4 @@ const ResetPassword = () => {
   );
 };
 
-export default ResetPassword;
+export default dynamic(() => Promise.resolve(ResetPassword), { ssr: false });

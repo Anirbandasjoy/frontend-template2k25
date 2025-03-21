@@ -1,11 +1,11 @@
 import { redirect } from "next/navigation";
 import { useEffect } from "react";
 import Loading from "../home/shared/loading";
-import { useGetCurrentUserQuery } from "@/redux/features/auth/authApi";
+import { useLoggedInUserQuery } from "@/redux/features/users/userApi";
 
 const isAdmin = (Component: any) => {
   return function IsAdmin(props: any) {
-    const { data: currentUser, isLoading } = useGetCurrentUserQuery();
+    const { data: currentUser, isLoading } = useLoggedInUserQuery();
     const admin = currentUser?.payload?.role === "admin";
 
     useEffect(() => {

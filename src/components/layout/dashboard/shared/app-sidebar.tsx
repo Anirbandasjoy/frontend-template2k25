@@ -2,22 +2,12 @@
 
 import * as React from "react";
 import {
-  AudioWaveform,
-  BookOpen,
-  Bot,
-  Command,
   CreativeCommonsIcon,
-  Frame,
-  GalleryVerticalEnd,
   Info,
   LayoutDashboard,
-  Map,
   Moon,
   NotebookPen,
-  PieChart,
   Settings,
-  Settings2,
-  SquareTerminal,
   SunMoon,
   Trash2,
   User,

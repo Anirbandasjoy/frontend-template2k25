@@ -1,9 +1,10 @@
 "use client";
 import Logout from "@/components/layout/shared/logOut";
 import { useLoggedInUserQuery } from "@/redux/features/users/userApi";
-import { ArrowUpRightFromSquareIcon, Lock, Outdent } from "lucide-react";
+import { ArrowUpRightFromSquareIcon, Lock } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import toast from "react-hot-toast";
 
 const Home = () => {
   const { data: loggedInUser } = useLoggedInUserQuery();
@@ -43,6 +44,7 @@ const Home = () => {
           <Link
             className="hover:underline flex items-center gap-1 "
             href="/dashboard"
+            onClick={() => toast.success("Navigating to Dashboard...")}
           >
             <span className="text-blue-400">Dashboard</span>
             <ArrowUpRightFromSquareIcon className="text-blue-400" size={16} />
