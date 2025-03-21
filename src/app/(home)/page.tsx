@@ -1,6 +1,12 @@
+"use client";
+import Logout from "@/components/layout/shared/logOut";
+import { useLoggedInUserQuery } from "@/redux/features/users/userApi";
+import { ArrowUpRightFromSquareIcon, Lock, Outdent } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 const Home = () => {
+  const { data: loggedInUser } = useLoggedInUserQuery();
   return (
     <div className="flex mt-9 mb-6 justify-center items-center px-4 sm:px-6 lg:px-8 text-gray-700">
       <div className="max-w-2xl w-full">
@@ -8,11 +14,40 @@ const Home = () => {
           Welcome to the Frontend Template
         </h1>
         <p className="mt-4 sm:mt-6 text-sm sm:text-base leading-relaxed text-gray-600  sm:text-left">
-          This template is built with Next.js, TypeScript, Tailwind CSS, and
-          shadcn/ui. It includes a basic navigation bar and a dashboard page.
-          You can customize the styles and components as needed.
+          This template is built with Next.js, Redux toolkit, TypeScript,
+          Tailwind CSS, and shadcn/ui. It includes a basic navigation bar and a
+          dashboard page. You can customize the styles and components as needed.
         </p>
 
+        <div className="mt-3 flex justify-end items-center gap-5">
+          {loggedInUser && (
+            <Logout
+              className="hover:underline flex items-center gap-1 cursor-pointer"
+              iconSize={16}
+            />
+          )}
+          <Link
+            className="hover:underline flex items-center gap-1 "
+            href="/login"
+          >
+            <span className="text-red-400">Login</span>
+            <Lock className="text-red-400" size={16} />
+          </Link>
+          <Link
+            className="hover:underline flex items-center gap-1 "
+            href="/signup"
+          >
+            <span className="text-green-400">SignUp</span>
+            <ArrowUpRightFromSquareIcon className="text-green-400" size={16} />
+          </Link>
+          <Link
+            className="hover:underline flex items-center gap-1 "
+            href="/dashboard"
+          >
+            <span className="text-blue-400">Dashboard</span>
+            <ArrowUpRightFromSquareIcon className="text-blue-400" size={16} />
+          </Link>
+        </div>
         <div className="mt-6 sm:mt-8 text-left">
           <h2 className="text-lg sm:text-xl font-medium">
             📌 Installation Guide

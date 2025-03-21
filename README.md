@@ -1,4 +1,4 @@
-# Frontend Template 2025
+# Frontend Template 2k25
 
 Welcome to the **Frontend Template 2025**! 🚀 This project is built with **NEXT.js**, **TypeScript**, **Tailwind CSS**, and **shadcn/ui**. It includes a basic navigation bar and a dashboard page.
 
@@ -8,6 +8,7 @@ Welcome to the **Frontend Template 2025**! 🚀 This project is built with **NEX
 - 🎨 **Tailwind CSS** for utility-first styling.
 - 🚀 **TypeScript** for type safety.
 - 📦 **shadcn/ui** for component base styling.
+- 📦 **Redux toolkit** for manage state.
 - 🛠️ Easy setup and customization.
 
 ## 🛠️ Installation Guide
