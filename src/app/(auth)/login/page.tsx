@@ -123,6 +123,7 @@ const Login = () => {
             </span>
             <span className="w-full border-t"></span>
           </div>
+          {/* form submittion button */}
 
           <Button
             onClick={handleGithubSignIn}
