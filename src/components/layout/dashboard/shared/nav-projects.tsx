@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/sidebar";
 import Link from "next/link";
 import React from "react";
+import { useTheme } from "next-themes";
 
 export function NavProjects({
   projects,
@@ -28,10 +29,11 @@ export function NavProjects({
     name: string;
     url: string;
     icon: LucideIcon;
-    items: { title: string; icon: LucideIcon }[];
+    items: { title: string; icon: LucideIcon; theme?: string }[];
   }[];
 }) {
   const { isMobile } = useSidebar();
+  const { setTheme, theme } = useTheme();
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
@@ -61,11 +63,12 @@ export function NavProjects({
                   (info, index) =>
                     index !== item.items.length - 1 && (
                       <DropdownMenuItem
+                        onClick={() => setTheme(info.theme || "default")}
                         key={info.title}
                         className="cursor-pointer"
                       >
                         <info.icon className="text-muted-foreground" />
-                        <span>{info.title}</span>
+                        <span className="">{info.title}</span>
                       </DropdownMenuItem>
                     )
                 )}

@@ -2,19 +2,29 @@
 import Logout from "@/components/layout/shared/logOut";
 import { useLoggedInUserQuery } from "@/redux/features/users/userApi";
 import { ArrowUpRightFromSquareIcon, Lock } from "lucide-react";
+import { useTheme } from "next-themes";
 import Link from "next/link";
 import React from "react";
 import toast from "react-hot-toast";
 
 const Home = () => {
   const { data: loggedInUser } = useLoggedInUserQuery();
+  const { theme } = useTheme();
   return (
-    <div className="flex mt-9 mb-6 justify-center items-center px-4 sm:px-6 lg:px-8 text-gray-700">
+    <div
+      className={`flex mt-9 mb-6 justify-center items-center px-4 sm:px-6 lg:px-8 ${
+        theme === "dark" ? "text-gray-200" : "text-gray-700"
+      }`}
+    >
       <div className="max-w-2xl w-full">
-        <h1 className="text-2xl sm:text-3xl font-semibold tracking-wide  sm:text-left">
+        <h1 className="text-2xl sm:text-3xl font-semibold tracking-wide  sm:text-left ">
           Welcome to the Frontend Template
         </h1>
-        <p className="mt-4 sm:mt-6 text-sm sm:text-base leading-relaxed text-gray-600  sm:text-left">
+        <p
+          className={`mt-4 sm:mt-6 text-sm sm:text-base leading-relaxed text-gray-600  sm:text-left ${
+            theme === "dark" ? "text-gray-300" : "text-gray-600"
+          }`}
+        >
           This template is built with Next.js, Redux toolkit, TypeScript,
           Tailwind CSS, and shadcn/ui. It includes a basic navigation bar and a
           dashboard page. You can customize the styles and components as needed.
