@@ -55,7 +55,7 @@ const data = {
       items: [
         {
           title: "Manage Users",
-          url: "/users",
+          url: "/dashboard/users",
         },
         {
           title: "Add User",
