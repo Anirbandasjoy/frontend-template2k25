@@ -53,7 +53,7 @@ export default function DashboardSidebar({
             </Breadcrumb>
           </div>
         </header>
-        <div className="p-5 pt-0 ">{children}</div>
+        <div className="p-5 pt-0">{children}</div>
       </SidebarInset>
     </SidebarProvider>
   );
