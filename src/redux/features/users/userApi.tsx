@@ -80,6 +80,19 @@ const templateUserApi = templateApi.injectEndpoints({
       },
     }),
 
+    handleUserStatus: builder.mutation<any, any>({
+      query: (data) => {
+        console.log({ data });
+        return {
+          url: `/user/update-user-role/${data?.id}`,
+          method: "Patch",
+          body: {
+            role: data?.role,
+          },
+        };
+      },
+    }),
+
     handleUpdateUserProfile: builder.mutation<
       IUpdateUserProfileResponse,
       IUpdateUserProfileRequest
@@ -105,4 +118,5 @@ export const {
   useHandleDeleteUserMutation,
   useHandleUpdateUserProfileMutation,
   useLoggedInUserQuery,
+  useHandleUserStatusMutation,
 } = templateUserApi;

@@ -55,6 +55,23 @@ const authApi = templateApi.injectEndpoints({
       }),
     }),
 
+    handleBanUser: builder.mutation<any,any>({
+      query: (id) => {
+        return {
+          url: `/auth/banned/${id}`,
+          method: "PATCH",
+        }
+      }
+    }),
+    handleUnBanUser: builder.mutation<any,any>({
+      query: (id) => {
+        return {
+          url: `/auth/unbanned/${id}`,
+          method: "PATCH",
+        }
+      }
+    }),
+
     handleUpdatePassword: builder.mutation<
       IUpdatePasswordResponse,
       IUpdatePasswordRequest
@@ -81,4 +98,6 @@ export const {
   useHandleForgotPasswordMutation,
   useHandleResetPasswordMutation,
   useHandleUpdatePasswordMutation,
+  useHandleBanUserMutation,
+  useHandleUnBanUserMutation
 } = authApi;
