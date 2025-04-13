@@ -59,8 +59,17 @@ export function NavMain({
                   tooltip={item.title}
                   className="cursor-pointer "
                 >
-                  {item.icon && <item.icon />}
-                  <span>{item.title}</span>
+                  {item.items ? (
+                    <>
+                      {item.icon && <item.icon />}
+                      <span>{item.title}</span>
+                    </>
+                  ) : (
+                    <>
+                      {item.icon && <item.icon />}
+                      <Link href="/dashboard">{item.title}</Link>
+                    </>
+                  )}
                   {item?.items && (
                     <CornerUpRight className="ml-auto text-gray-700 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                   )}

@@ -45,10 +45,10 @@ export default function DashboardSidebar({
                     Dashboard
                   </Link>
                 </BreadcrumbItem>
-                <BreadcrumbSeparator className="hidden md:block" />
+                {path3 && <BreadcrumbSeparator className="hidden md:block" />}
                 <BreadcrumbItem>
                   <BreadcrumbPage className="text-gray-600 capitalize cursor-pointer">
-                    {path3 || "Dashboard"}
+                    {path3}
                   </BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
