@@ -21,6 +21,8 @@ import {
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
 
 export function NavMain({
   items,
@@ -37,6 +39,9 @@ export function NavMain({
     }[];
   }[];
 }) {
+  const path = usePathname();
+  const { theme } = useTheme();
+
   return (
     <SidebarGroup>
       <SidebarGroupLabel>General</SidebarGroupLabel>
@@ -61,22 +66,39 @@ export function NavMain({
                   )}
                 </SidebarMenuButton>
               </CollapsibleTrigger>
-              <CollapsibleContent>
-                <SidebarMenuSub>
-                  {item.items?.map((subItem) => (
-                    <SidebarMenuSubItem key={subItem.title}>
-                      <SidebarMenuSubButton asChild>
-                        <div className="flex items-center gap-1 cursor-pointer">
-                          {subItem.icon && <subItem.icon />}
-                          <Link href={subItem.url}>
-                            <span>{subItem.title}</span>
+              {item?.items && (
+                <CollapsibleContent>
+                  <SidebarMenuSub>
+                    {item.items?.map((subItem) => (
+                      <SidebarMenuSubItem key={subItem.title}>
+                        <SidebarMenuSubButton
+                          asChild
+                          className={`
+                          flex items-center gap-1  transition-colors rounded-sm
+                          ${
+                            path === subItem.url
+                              ? "bg-gray-200 dark:bg-gray-700"
+                              : ""
+                          }
+                          hover:bg-gray-200 dark:hover:bg-gray-700
+                          ${
+                            theme === "dark" ? "text-gray-300" : "text-gray-700"
+                          }
+                        `}
+                        >
+                          <Link
+                            href={subItem.url}
+                            className="flex items-center gap-1 w-full px-2 py-1"
+                          >
+                            {subItem.icon && <subItem.icon />}
+                            <span className="capitalize">{subItem.title}</span>
                           </Link>
-                        </div>
-                      </SidebarMenuSubButton>
-                    </SidebarMenuSubItem>
-                  ))}
-                </SidebarMenuSub>
-              </CollapsibleContent>
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+                    ))}
+                  </SidebarMenuSub>
+                </CollapsibleContent>
+              )}
             </SidebarMenuItem>
           </Collapsible>
         ))}
