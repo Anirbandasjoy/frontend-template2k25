@@ -11,9 +11,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   AtSign,
-  ChartNoAxesGantt,
   CircleArrowOutDownRight,
-  Delete,
   Ellipsis,
   Trash2,
   User,
@@ -24,13 +22,6 @@ import Heading from "../shared/Heading";
 import { Button } from "@/components/ui/button";
 import toast from "react-hot-toast";
 import { Input } from "@/components/ui/input";
-
-const users = Array.from({ length: 10 }, (_, index) => ({
-  id: index,
-  name: "Joy das",
-  email: "joy600508@gmail.com",
-  role: "admin",
-}));
 
 interface User {
   _id: string;

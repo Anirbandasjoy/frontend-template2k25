@@ -1,10 +1,5 @@
 "use client";
-import {
-  ChevronRight,
-  CornerUpRight,
-  Redo,
-  type LucideIcon,
-} from "lucide-react";
+import { CornerUpRight, type LucideIcon } from "lucide-react";
 import {
   Collapsible,
   CollapsibleContent,

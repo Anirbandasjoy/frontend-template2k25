@@ -55,7 +55,7 @@ export default function DashboardSidebar({
             </Breadcrumb>
           </div>
         </header>
-        <div className="p-5 pt-0 z-20">{children}</div>
+        <div className="p-4 pt-0 z-20">{children}</div>
         <div
           className={`absolute bottom-0 right-0 w-full h-[calc(100vh-200px)] bg-gradient-to-t z-10  ${
             theme === "dark"
