@@ -2,15 +2,28 @@
 
 import * as React from "react";
 import {
+  ArrowLeftRight,
+  BadgeCheck,
   CreativeCommonsIcon,
+  Diff,
+  Flag,
   Info,
-  LayoutDashboard,
+  ListCheck,
+  ListFilterPlus,
+  ListFilterPlusIcon,
+  ListPlus,
+  LucideLayoutDashboard,
+  MessageSquareDiff,
   Moon,
-  NotebookPen,
+  PlaneTakeoff,
+  Plus,
   Settings,
+  ShieldHalf,
   SunMoon,
   Trash2,
   User,
+  UserCog,
+  UserRoundPen,
   Users,
 } from "lucide-react";
 
@@ -26,55 +39,62 @@ import { NavMain } from "./nav-main";
 import { NavProjects } from "./nav-projects";
 import { NavUser } from "./nav-user";
 
-// This is sample data.
 const data = {
   user: {
-    name: "Template",
-    email: "templatet@gmail.com",
+    name: "Joy das",
+    email: "joy600508@gmail.com",
     avatar: "/avatars/shadcn.jpg",
   },
   teams: [
     {
-      name: "Template",
-      logo: LayoutDashboard,
-      plan: "Template design",
+      name: "Frontend Template",
+      logo: BadgeCheck,
+      plan: "demo your next dashboard",
+      url: "/",
     },
   ],
   navMain: [
     {
       title: "Dashboard",
-      url: "#",
-      icon: LayoutDashboard,
-      isActive: true,
+      url: "/dashboard",
+      icon: LucideLayoutDashboard,
+      isActive: false,
+      // items: [
+      //   {
+      //     title: "Dashboard",
+      //     url: "/dashboard",
+      //     icon: LucideLayoutDashboard,
+      //   },
+      // ],
     },
     {
       title: "Users",
       url: "#",
       icon: Users,
-      isActive: true,
+      isActive: false,
       items: [
         {
           title: "Manage Users",
           url: "/dashboard/users",
-        },
-        {
-          title: "Add User",
-          url: "#",
+          icon: UserCog,
         },
       ],
     },
     {
-      title: "Blog",
+      title: "Blogs",
       url: "#",
-      icon: NotebookPen,
+      icon: UserRoundPen,
+      isActive: false,
       items: [
         {
-          title: "Manage Blog",
-          url: "#",
+          title: "Add Blog",
+          url: "/dashboard/add-blog",
+          icon: Plus,
         },
         {
-          title: "Add Blog",
-          url: "#",
+          title: "Manage Blog",
+          url: "/dashboard/manage-blog",
+          icon: ListFilterPlus,
         },
       ],
     },
@@ -88,16 +108,16 @@ const data = {
         {
           title: "Account",
           icon: User,
+          url: "/dashboard/account",
         },
         {
           title: "Personal info",
           icon: Info,
-          url: "#",
+          url: "/personal-info",
         },
         {
           title: "Delete Account",
           icon: Trash2,
-          url: "#",
         },
       ],
     },
@@ -109,19 +129,17 @@ const data = {
         {
           title: "Light Mode",
           icon: Moon,
-          url: "#",
+
           theme: "light",
         },
         {
           title: "Dark Mode",
           icon: SunMoon,
-          url: "#",
           theme: "dark",
         },
         {
           title: "System",
           icon: CreativeCommonsIcon,
-          url: "#",
           theme: "system",
         },
       ],

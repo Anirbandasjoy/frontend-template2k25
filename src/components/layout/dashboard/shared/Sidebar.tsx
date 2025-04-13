@@ -1,7 +1,7 @@
+"use client";
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
@@ -12,6 +12,8 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { AppSidebar } from "./app-sidebar";
 
 export default function DashboardSidebar({
@@ -19,6 +21,10 @@ export default function DashboardSidebar({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const path = usePathname();
+  const [path2] = path?.split("/")?.slice(2, 3);
+  const path3 = path2?.split("-")?.join(" ");
+  console.log({ path2 });
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -28,19 +34,26 @@ export default function DashboardSidebar({
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
             <Breadcrumb>
-              <BreadcrumbList>
-                <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="#">Admin Panel</BreadcrumbLink>
+              <BreadcrumbList className="text-gray-500 no-underline">
+                <BreadcrumbItem className="hidden md:block text-gray-500">
+                  <Link
+                    href="/dashboard"
+                    className="no-underline capitalize cursor-pointer "
+                  >
+                    Dashboard
+                  </Link>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>Users</BreadcrumbPage>
+                  <BreadcrumbPage className="text-gray-600 capitalize cursor-pointer">
+                    {path3 || "Dashboard"}
+                  </BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
           </div>
         </header>
-        <div className=" p-4 pt-0 ">{children}</div>
+        <div className="p-5 pt-0 ">{children}</div>
       </SidebarInset>
     </SidebarProvider>
   );

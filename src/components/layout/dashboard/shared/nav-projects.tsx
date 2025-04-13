@@ -29,11 +29,11 @@ export function NavProjects({
     name: string;
     url: string;
     icon: LucideIcon;
-    items: { title: string; icon: LucideIcon; theme?: string }[];
+    items: { title: string; icon: LucideIcon; theme?: string; url?: string }[];
   }[];
 }) {
   const { isMobile } = useSidebar();
-  const { setTheme, theme } = useTheme();
+  const { setTheme } = useTheme();
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
@@ -42,10 +42,10 @@ export function NavProjects({
         {projects.map((item) => (
           <SidebarMenuItem key={item.name}>
             <SidebarMenuButton asChild>
-              <Link href={item.url}>
+              <div className="cursor-pointer">
                 <item.icon />
                 <span>{item.name}</span>
-              </Link>
+              </div>
             </SidebarMenuButton>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -62,14 +62,28 @@ export function NavProjects({
                 {item.items.map(
                   (info, index) =>
                     index !== item.items.length - 1 && (
-                      <DropdownMenuItem
-                        onClick={() => setTheme(info.theme || "default")}
-                        key={info.title}
-                        className="cursor-pointer"
-                      >
-                        <info.icon className="text-muted-foreground" />
-                        <span className="">{info.title}</span>
-                      </DropdownMenuItem>
+                      <>
+                        {info.url ? (
+                          <Link href={info.url} key={info.title}>
+                            <DropdownMenuItem
+                              onClick={() => setTheme(info.theme || "default")}
+                              className="cursor-pointer"
+                            >
+                              <info.icon className="text-muted-foreground" />
+                              <span className="">{info.title}</span>
+                            </DropdownMenuItem>
+                          </Link>
+                        ) : (
+                          <DropdownMenuItem
+                            key={info.title}
+                            onClick={() => setTheme(info.theme || "default")}
+                            className="cursor-pointer"
+                          >
+                            <info.icon className="text-muted-foreground" />
+                            <span className="">{info.title}</span>
+                          </DropdownMenuItem>
+                        )}
+                      </>
                     )
                 )}
 
