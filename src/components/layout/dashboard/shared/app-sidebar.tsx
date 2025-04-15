@@ -2,23 +2,14 @@
 
 import * as React from "react";
 import {
-  ArrowLeftRight,
   BadgeCheck,
   CreativeCommonsIcon,
-  Diff,
-  Flag,
   Info,
-  ListCheck,
   ListFilterPlus,
-  ListFilterPlusIcon,
-  ListPlus,
   LucideLayoutDashboard,
-  MessageSquareDiff,
   Moon,
-  PlaneTakeoff,
   Plus,
   Settings,
-  ShieldHalf,
   SunMoon,
   Trash2,
   User,
@@ -59,13 +50,6 @@ const data = {
       url: "/dashboard",
       icon: LucideLayoutDashboard,
       isActive: false,
-      // items: [
-      //   {
-      //     title: "Dashboard",
-      //     url: "/dashboard",
-      //     icon: LucideLayoutDashboard,
-      //   },
-      // ],
     },
     {
       title: "Users",
